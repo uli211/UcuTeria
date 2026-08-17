@@ -137,11 +137,12 @@ const listaProductos = document.getElementById('listaProductos');
             listaProductos.innerHTML += precio;
          
 
-            const categoria = `<p>`document.createElement('p');
-            categoria.textContent = producto.category;
+            const categoria = `<p>${producto.category}</p>`;
+            listaProductos.innerHTML += categoria;
 
-            const descripcion = document.createElement('p');
-            descripcion.textContent = producto.desc;
+
+            const descripcion = `<p>${producto.dec}</p>`;
+            listaProductos.innerHTML += desc;
             
             div.appendChild(titulo);
             div.appendChild(precio);
