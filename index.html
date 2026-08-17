@@ -3,12 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu,local_cafe" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=browse,categorias" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+  
 
     <title>UcuTeria</title>
 </head>
 <body>
+    <header class="header bg-primary text-white py-4">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="header-logo">
+                <img src="images/Logo.png" alt="Logo" class="img-fluid">
+            </div>
+            <div class="header-content text-center">
+                <h1 class="header-title display-4">UcuTeria</h1>
+                <p class="header-description lead">Cafeteria UCU</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Catalogo">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Carrito">
+                            <img src="images/Carrito.png" alt="Carrito">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+                
+    <!-- Campo de búsqueda -->
+    <div class="mt-4">
+        <input type="text" id="buscar-producto" class="form-control" placeholder="Buscar producto..."> 
+        <button id="buscar-btn" class="btn btn-primary mt-2">Buscar</button>
+    </div>
+    <!-- Termina Campo de busqueda--> 
+     
+
+        <!-- Categorias--> 
+    <button id="Todas" class="btn btn-danger mt-3">
+        <img src="images/Browse.png" alt="">
+        <span>Todas</span>
+    </button>
+    
+    <button id="Cafe" class="btn btn-danger mt-3">
+     <img src="images/local_cafe.png" alt="Cafe"> 
+     <span>Cafe</span>
+    </button>
+    
+    <button id="Te" class="btn btn-danger mt-3">
+        <img src="images/Te.png" alt="Te">
+        <span>Te</span>
+    </button>
+    
+    <button id="Pasteleria" class="btn btn-danger mt-3">
+        <img src="images/Pasteleria.png" alt="Pasteleria">
+        <span>Pasteleria</span>
+    </button>
+    
+    <button id="Sandwiches" class="btn btn-danger mt-3">
+        <img src="images/Sandwiches.png" alt="Sandwiches">
+        <span>Sandwiches</span>
+    </button>
+        <!-- Termina la sección de categorías --> 
+
+    <!-- Ordenar -->
+     <div class="mt-4">
+    <select id="ordenProductos">
+        <option value="" disabled>Ordenar productos</option>
+        <option value="asc">Precio: menor a mayor</option>
+        <option value="desc">Precio: mayor a menor</option>
+        <option value="az">Nombre: A-Z</option>
+        <option value="za">Nombre: Z-A</option>
+    </select>
+    </div>
+    <!-- Termina Ordenar-->
+    <div id="listaProductos" class="mt-4"></div>
+    
+
+ 
+    <!-- Carrito -->
+  <aside class="carrito">
+  <div class="carrito-header">
+    <h2>Tu Carrito (3)</h2>
+    <button class="cerrar-carrito" type="button">×</button>
+  </div>
+
+  <div class="carrito-item">
+    <img src="images/latte.png" alt="Latte">
+
+    <div class="carrito-info">
+      <h3>Latte</h3>
+
+      <div class="cantidad">
+        <button type="button">−</button>
+        <span>1</span>
+        <button type="button">+</button>
+      </div>
+    </div>
+
+    <p class="precio">$180</p>
+    <button class="eliminar" type="button">🗑</button>
+  </div>
+
+  <div class="carrito-item">
+    <img src="images/medialuna.png" alt="Medialuna">
+
+    <div class="carrito-info">
+      <h3>Medialuna</h3>
+
+      <div class="cantidad">
+        <button type="button">−</button>
+        <span>2</span>
+        <button type="button">+</button>
+      </div>
+    </div>
+
+    <p class="precio">$90</p>
+    <button class="eliminar" type="button">🗑</button>
+  </div>
+
+  <div class="cupon">
+    <label for="cupon">Cupón</label>
+
+    <div class="cupon-input">
+      <input type="text" id="cupon" value="DESC10">
+      <button type="button">Aplicar</button>
+    </div>
+  </div>
+
+  <div class="resumen">
+    <div>
+      <span>Subtotal</span>
+      <span>$490</span>
+    </div>
+
+    <div>
+      <span>Descuento (10%)</span>
+      <span class="descuento">-$49</span>
+    </div>
+
+    <div>
+      <span>Subtotal c/desc.</span>
+      <span>$441</span>
+    </div>
+
+    <div>
+      <span>IVA 22%</span>
+      <span>$97.02</span>
+    </div>
+
+    <div>
+      <span>Envío</span>
+      <span>$120</span>
+    </div>
+  </div>
+
+  <div class="total">
+    <h3>Total</h3>
+    <strong>$658.02</strong>
+  </div>
+
+  <button class="checkout" type="button">
+    Ir al checkout
+    <span>›</span>
+  </button>
+</aside>
+    <!-- Termina Carrito-->
+
+
+
+
+ <script>
+
+     const PRODUCTS = [
+  { id: "c1", name: "Espresso",      price: 120, category: "Café",       img: "☕️", desc: "Corto e intenso." },
+  { id: "c2", name: "Latte",         price: 180, category: "Café",       img: "🥛☕️", desc: "Con leche espumada." },
+  { id: "t1", name: "Té Verde",      price: 140, category: "Té",         img: "🍵", desc: "Suave y herbal." },
+  { id: "t2", name: "Té Chai",       price: 160, category: "Té",         img: "🫖", desc: "Especias aromáticas." },
+  { id: "p1", name: "Medialuna",     price: 90,  category: "Pastelería", img: "🥐", desc: "Mantecosas y doradas." },
+  { id: "p2", name: "Torta Choc",    price: 220, category: "Pastelería", img: "🍰", desc: "Fudge intenso." },
+  { id: "s1", name: "Sándwich Jamón",price: 260, category: "Sándwiches", img: "🥪", desc: "Clásico de la casa." },
+  { id: "s2", name: "Veggie Grill",  price: 280, category: "Sándwiches", img: "🥗", desc: "Verduras asadas." }
+];
+
+const listaProductos = document.getElementById('listaProductos');
+    function listarProductos(productos){       
+       
+
+        for(const producto of productos){
+            const test = `<div><h3>${producto.name}</h3></div>`
+            listaProductos.innerHTML = test;
+
+            const div  = document.createElement('div');
+
+            const titulo = document.createElement('h3');
+            titulo.textContent = producto.img+" "+ producto.name;
+
+            const precio = document.createElement('p');
+            precio.textContent = '$' + producto.price;
+
+            const categoria = document.createElement('p');
+            categoria.textContent = producto.category;
+
+            const descripcion = document.createElement('p');
+            descripcion.textContent = producto.desc;
+            
+            div.appendChild(titulo);
+            div.appendChild(precio);
+            div.appendChild(categoria);
+            div.appendChild(descripcion);
+            
+            listaProductos.appendChild(div);  
+        }
+    }
+
+    listarProductos(PRODUCTS);
+ </script>
+   
     
 </body>
-</html>5
+
+
+</html>
