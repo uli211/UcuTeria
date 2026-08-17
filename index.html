@@ -105,92 +105,7 @@
 
  
     <!-- Carrito -->
-  <aside class="carrito">
-  <div class="carrito-header">
-    <h2>Tu Carrito (3)</h2>
-    <button class="cerrar-carrito" type="button">×</button>
-  </div>
 
-  <div class="carrito-item">
-    <img src="images/latte.png" alt="Latte">
-
-    <div class="carrito-info">
-      <h3>Latte</h3>
-
-      <div class="cantidad">
-        <button type="button">−</button>
-        <span>1</span>
-        <button type="button">+</button>
-      </div>
-    </div>
-
-    <p class="precio">$180</p>
-    <button class="eliminar" type="button">🗑</button>
-  </div>
-
-  <div class="carrito-item">
-    <img src="images/medialuna.png" alt="Medialuna">
-
-    <div class="carrito-info">
-      <h3>Medialuna</h3>
-
-      <div class="cantidad">
-        <button type="button">−</button>
-        <span>2</span>
-        <button type="button">+</button>
-      </div>
-    </div>
-
-    <p class="precio">$90</p>
-    <button class="eliminar" type="button">🗑</button>
-  </div>
-
-  <div class="cupon">
-    <label for="cupon">Cupón</label>
-
-    <div class="cupon-input">
-      <input type="text" id="cupon" value="DESC10">
-      <button type="button">Aplicar</button>
-    </div>
-  </div>
-
-  <div class="resumen">
-    <div>
-      <span>Subtotal</span>
-      <span>$490</span>
-    </div>
-
-    <div>
-      <span>Descuento (10%)</span>
-      <span class="descuento">-$49</span>
-    </div>
-
-    <div>
-      <span>Subtotal c/desc.</span>
-      <span>$441</span>
-    </div>
-
-    <div>
-      <span>IVA 22%</span>
-      <span>$97.02</span>
-    </div>
-
-    <div>
-      <span>Envío</span>
-      <span>$120</span>
-    </div>
-  </div>
-
-  <div class="total">
-    <h3>Total</h3>
-    <strong>$658.02</strong>
-  </div>
-
-  <button class="checkout" type="button">
-    Ir al checkout
-    <span>›</span>
-  </button>
-</aside>
     <!-- Termina Carrito-->
 
 
@@ -214,18 +129,15 @@ const listaProductos = document.getElementById('listaProductos');
        
 
         for(const producto of productos){
-            const test = `<div><h3>${producto.name}</h3></div>`
+            const test = `<div><h3>${producto.name + " "+ producto.img}</h3></div>`
             listaProductos.innerHTML = test;
 
-            const div  = document.createElement('div');
+         
+            const precio = `<p>${producto.price}</p>`;
+            listaProductos.innerHTML += precio;
+         
 
-            const titulo = document.createElement('h3');
-            titulo.textContent = producto.img+" "+ producto.name;
-
-            const precio = document.createElement('p');
-            precio.textContent = '$' + producto.price;
-
-            const categoria = document.createElement('p');
+            const categoria = `<p>`document.createElement('p');
             categoria.textContent = producto.category;
 
             const descripcion = document.createElement('p');
